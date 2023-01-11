@@ -1,0 +1,50 @@
+.form{
+    display:flex;
+    flex-direction: column;
+    background-color: var(--main-color);
+    padding:20px;
+    gap:20px;
+    border-radius: 10px;
+}
+
+.form span{
+    color:white;
+    font-weight: 800;
+    font-size: 15px;
+    text-align: center;
+}
+
+.form_group{
+    width:100%;
+}
+
+.form_input{
+    width:100%;
+    padding:10px 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.form_input[type="submit"]{
+    background-color: #fff;
+    cursor: pointer;
+    transition:.2s background-color ease;
+}
+
+.form_input[type="submit"]:hover{
+    background-color:#aaaaaa;
+}
+
+.form_group p{
+    font-weight: 700;
+    text-align: center;
+}
+
+.form_group .error{
+    color:red;
+}
+
+.form_group .message{
+    color:white;
+}

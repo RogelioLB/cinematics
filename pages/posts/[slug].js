@@ -5,7 +5,7 @@ import NavBar from "../../components/NavBar";
 import styles from "../../styles/Content.module.css"
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-import Aside from "../../components/AsideCategories";
+import Aside from "../../components/Aside";
 
 export default function PagePost({ post, source }) {
   const { Title, MainImage } = post.attributes;

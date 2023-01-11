@@ -6,16 +6,17 @@ function Category({name}){
     )
 }
 
-export default function Aside(props){
+
+export default function Categories(props){
     const categories = ["Dreamworks"]
     return(
-        <div className={styles.aside}>
+        <>
           <h2>Categorias</h2>
           <div className={styles.categories_container}>
               {
                   categories && categories.map((category,id)=><Category key={id} name={category}/>)
               }
           </div>
-        </div>
+        </>
     )
 }
