@@ -13,7 +13,7 @@ export default function Post({ post }) {
     <article className={styles.container}>
       <a href={`/posts/${slug}`}>
         <img
-          src={image[0].attributes.formats.medium.url}
+          src={image.attributes.formats.medium.url}
           alt={image.name}
         />
         <h3 className={styles.title}>{Title}</h3>

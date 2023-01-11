@@ -15,7 +15,7 @@ export default function PagePost({ post, source }) {
       <div className={stylesHome.container}>
         <div className={styles.content}>
           <img
-            src={MainImage.data[0].attributes.formats.large.url}
+            src={MainImage.data.attributes.formats.large.url}
           />
           <h1>{Title}</h1>
           <div className={styles.md}>
