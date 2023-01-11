@@ -8,6 +8,7 @@ import styles from "../styles/Home.module.css";
 import { Markdown as md } from "node-markdown";
 import Aside from "../components/Aside";
 import Categories from "../components/Categories";
+import { ArticleJsonLd, NextSeo } from "next-seo";
 
 export default function Home({ posts, pagination }) {
   const dispatch = useDispatch();
@@ -19,6 +20,17 @@ export default function Home({ posts, pagination }) {
 
   return (
     <>
+      <NextSeo
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            contet:
+              "cine,cinema,cinematics,blog,vercel,series,peliculas,dreamworks,disney",
+          },
+        ]}
+        title=" Cinematics | Oficial Page "
+        description="Blog dedicado a hablar sobre series y peliculas, reseñas, opiniones, noticias y mucho más."
+      />
       <NavBar />
       <div className={styles.container}>
         <MainContent />

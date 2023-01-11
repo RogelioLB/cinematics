@@ -6,16 +6,23 @@ import styles from "../../styles/Content.module.css"
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import Aside from "../../components/Aside";
+import { NextSeo } from "next-seo";
+import { Markdown as md} from "node-markdown";
 
-export default function PagePost({ post, source }) {
+export default function PagePost({ post, source,content }) {
   const { Title, MainImage } = post.attributes;
+  const formats = MainImage.data.attributes.formats;
+  const large = formats.large
+  const medium = formats.medium
+  const small = formats.small
   return (
     <>
+    <NextSeo title={Title} description={content} images={[large,medium,small]}/>
       <NavBar />
       <div className={stylesHome.container}>
         <div className={styles.content}>
           <img
-            src={MainImage.data.attributes.formats.large.url}
+            src={large.url}
           />
           <h1>{Title}</h1>
           <div className={styles.md}>
@@ -36,11 +43,13 @@ export async function getServerSideProps(ctx) {
   });
   const data = res.data;
   const post = data.data;
-  const source = await serialize(data.data.attributes.Content)
+  const source = await serialize(post.attributes.Content)
+  const content = md(post.attributes.Content, true, "h5");
   return {
     props: {
       post,
-      source
+      source,
+      content
     },
   };
 }
