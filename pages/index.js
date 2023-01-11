@@ -49,6 +49,7 @@ export async function getServerSideProps() {
     {
       params: {
         populate: "*",
+        sort:"createdAt:desc"
       },
     }
   );
