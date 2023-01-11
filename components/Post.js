@@ -9,12 +9,11 @@ export default function Post({ post }) {
     post.attributes;
   const tags = categories.data;
   const image = MainImage.data;
-
   return (
     <article className={styles.container}>
       <a href={`/posts/${slug}`}>
         <img
-          src={image.attributes.formats.medium.url}
+          src={image[0].attributes.formats.medium.url}
           alt={image.name}
         />
         <h3 className={styles.title}>{Title}</h3>
