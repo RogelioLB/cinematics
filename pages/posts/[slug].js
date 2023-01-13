@@ -8,11 +8,12 @@ import { MDXRemote } from "next-mdx-remote";
 import Aside from "../../components/Aside";
 import { NextSeo } from "next-seo";
 import { Markdown as md } from "node-markdown";
-import Image from "next/image"
-import stylesPost from "../../styles/Post.module.css"
+import Image from "next/image";
+import stylesPost from "../../styles/Post.module.css";
 
 export default function PagePost({ post, source, content }) {
-  const { Title, MainImage } = post.attributes;
+  const { Title, MainImage, admin_user, createdAt } = post.attributes;
+  const author = admin_user.data.attributes;
   const formats = MainImage.data.attributes.formats;
   const large = formats.large;
   const medium = formats.medium;
@@ -27,13 +28,19 @@ export default function PagePost({ post, source, content }) {
       <NavBar />
       <div className={stylesHome.container}>
         <div className={styles.content}>
-          <div className={stylesPost.image_container}>
-            <Image
-              src={large?.url ?? small.url}
-              layout="fill"
-              className={stylesPost.image}
-              alt={MainImage.data.attributes.name}
-            />
+          <div className={styles.container_data}>
+            <div className={stylesPost.image_container}>
+              <Image
+                src={large?.url ?? small.url}
+                layout="fill"
+                className={stylesPost.image}
+                alt={MainImage.data.attributes.name}
+              />
+            </div>
+            <div className={styles.meta_data}>
+              <h4>{author.firstname}</h4>
+              <h5>{new Date(createdAt).toDateString()}</h5>
+            </div>
           </div>
           <h1>{Title}</h1>
           <div className={styles.md}>

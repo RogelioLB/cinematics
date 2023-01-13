@@ -1,5 +1,5 @@
 import styles from "../styles/Post.module.css";
-import Image from 'next/image'
+import Image from "next/image";
 
 function Tag({ content }) {
   return <span className={styles.tag}>{content}</span>;
@@ -10,15 +10,18 @@ export default function Post({ post }) {
     post.attributes;
   const tags = categories.data;
   const image = MainImage.data.attributes;
-  const medium = image.formats?.medium
-  const small = image.formats.small
-  const url = medium?.url ?? small.url
+  const medium = image.formats?.medium;
+  const small = image.formats.small;
+  const url = medium.url ?? small.url;
   return (
     <article className={styles.container}>
       <a href={`/posts/${slug}`}>
-      <div className={styles.image_container}>
-  <Image src={url} layout="fill" className={styles.image} alt={image.name}/>
-</div>
+        <div className={styles.image_container}>
+          <img
+            src={url}
+            alt={image.name}
+          />
+        </div>
 
         <h3 className={styles.title}>{Title}</h3>
         <p className={styles.content}>{content}</p>

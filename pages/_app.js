@@ -3,8 +3,18 @@ import { Provider } from "react-redux";
 import store from "../store";
 import { DefaultSeo } from "next-seo";
 import Script from "next/script";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+
+  useEffect(()=>{
+    const getCategories = () =>{
+      store.dispatch({type:"LOAD_CATEGORIES",payload:["Dreamworks","Deportes"]})
+    }
+
+    getCategories()
+  })
+
   return (
     <Provider store={store}>
       <Script

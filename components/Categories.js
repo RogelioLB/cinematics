@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
 import styles from "../styles/Home.module.css"
 
 function Category({name}){
@@ -8,7 +10,9 @@ function Category({name}){
 
 
 export default function Categories(props){
-    const categories = ["Dreamworks"]
+    const categories = useSelector(state=>state.categories)
+
+    console.log(categories)
     return(
         <>
           <h2>Categorias</h2>
