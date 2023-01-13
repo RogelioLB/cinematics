@@ -7,19 +7,11 @@ import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <DefaultSeo
-        additionalMetaTags={[
-          {
-            name: "google-site-verification",
-            content: "k8T0bep__3ADBGgZIZB6NJOQu3m-NwmLgdHsASvK10U",
-          },
-        ]}
-      />
       <Script
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-TEEZ802RPY"
-      ></Script>
-      <Script strategy="lazyOnload" id="google-analitycs">
+      />
+      <Script strategy="afterInteractive" id="google-analytics">
         {`
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -28,6 +20,14 @@ function MyApp({ Component, pageProps }) {
   gtag('config', 'G-TEEZ802RPY')
   `}
       </Script>
+      <DefaultSeo
+        additionalMetaTags={[
+          {
+            name: "google-site-verification",
+            content: "k8T0bep__3ADBGgZIZB6NJOQu3m-NwmLgdHsASvK10U",
+          },
+        ]}
+      />
       <Component {...pageProps} />
     </Provider>
   );

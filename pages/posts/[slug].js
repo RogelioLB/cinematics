@@ -29,10 +29,10 @@ export default function PagePost({ post, source, content }) {
         <div className={styles.content}>
           <div className={stylesPost.image_container}>
             <Image
-              src={large.url}
+              src={large?.url ?? small.url}
               layout="fill"
               className={stylesPost.image}
-              alt={large.name}
+              alt={MainImage.data.attributes.name}
             />
           </div>
           <h1>{Title}</h1>
