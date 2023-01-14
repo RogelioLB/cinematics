@@ -4,12 +4,16 @@ import store from "../store";
 import { DefaultSeo } from "next-seo";
 import Script from "next/script";
 import { useEffect } from "react";
+import axios from "axios";
 
 function MyApp({ Component, pageProps }) {
 
   useEffect(()=>{
-    const getCategories = () =>{
-      store.dispatch({type:"LOAD_CATEGORIES",payload:["Dreamworks","Deportes"]})
+    const getCategories = async () =>{
+      const res = await axios("https://strapi-production-9ea0.up.railway.app/api/categories")
+      const data = res.data;
+      const categories = data.data
+      store.dispatch({type:"LOAD_CATEGORIES",payload:categories})
     }
 
     getCategories()

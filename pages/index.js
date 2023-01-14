@@ -25,7 +25,7 @@ export default function Home({ posts, pagination }) {
           {
             name: "keywords",
             contet:
-              "cine,cinema,cinematics,blog,vercel,series,peliculas,dreamworks,disney",
+              "blog de cine, blog de cine en español, cine, cinema, peliculas",
           },
         ]}
         title=" Cinematics | Oficial Page "
