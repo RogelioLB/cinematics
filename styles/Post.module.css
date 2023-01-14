@@ -89,7 +89,7 @@
 
 @media screen and (max-width:963px) and (min-width:768px){
   .image_container{
-    height:auto;
+    height:auto !important;
   }
 }
 
@@ -101,6 +101,6 @@
 
 @media screen and (max-width:709px){
   .image_container{
-    height: auto;
+    height: auto !important;
   }
 }

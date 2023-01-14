@@ -12,7 +12,7 @@ import Image from "next/image";
 import stylesPost from "../../styles/Post.module.css";
 
 export default function PagePost({ post, source, content }) {
-  const { Title, MainImage, admin_user, createdAt } = post.attributes;
+  const { Title, MainImage, admin_user, createdAt, Keywords } = post.attributes;
   const author = admin_user.data.attributes;
   const formats = MainImage.data.attributes.formats;
   const large = formats.large;
@@ -24,6 +24,9 @@ export default function PagePost({ post, source, content }) {
         title={Title}
         description={content}
         images={[large, medium, small]}
+        additionalMetaTags={
+          [{name:"keywords",content:Keywords}]
+        }
       />
       <NavBar />
       <div className={stylesHome.container}>

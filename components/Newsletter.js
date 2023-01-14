@@ -10,17 +10,23 @@ export default function Newsletter({ strapiEndpoint, buttonText }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      `${strapiEndpoint}/strapi-newsletter/newsletter/subscribe`,
-      { email: email }
-    );
-    const data = res.data;
-    if (data.createdAt) {
-      setMessage("Sucrito correctamente.");
-      setShowMessage(true);
-    } else {
-      setError(true);
-      setShowMessage("A ocurrido un error.");
+    try{
+      const res = await axios.post(
+        `${strapiEndpoint}/strapi-newsletter/newsletter/subscribe`,
+        { email: email }
+      );
+      const data = res.data;
+      if (data.createdAt) {
+        setMessage("Sucrito correctamente.");
+        setShowMessage(true);
+      } else {
+        setError("A ocurrido un error.");
+        setShowMessage(true)
+      }
+    }catch(err){
+      console.log(err)
+      setError("A ocurrido un error.")
+      setShowMessage(true)
     }
     setEmail("");
     setTimeout(() => {
