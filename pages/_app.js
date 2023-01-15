@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import { DefaultSeo } from 'next-seo';
-import Script from 'next/script';
 import { useEffect } from 'react';
 import axios from 'axios';
 import store from '../store';
