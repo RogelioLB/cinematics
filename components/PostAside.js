@@ -18,7 +18,6 @@ export default function PostAside({ post }) {
       const postsData = data.data.slice(0, 2);
       setPosts(postsData);
     };
-
     getSuggestPosts();
   }, [slug]);
 

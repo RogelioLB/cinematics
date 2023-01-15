@@ -1,36 +1,36 @@
-import axios from "axios";
-import { useState } from "react";
-import styles from "../styles/Newsletter.module.css";
+import axios from 'axios';
+import { useState } from 'react';
+import styles from '../styles/Newsletter.module.css';
 
 export default function Newsletter({ strapiEndpoint, buttonText }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const res = await axios.post(
         `${strapiEndpoint}/strapi-newsletter/newsletter/subscribe`,
-        { email: email }
+        { email },
       );
-      const data = res.data;
+      const { data } = res;
       if (data.createdAt) {
-        setMessage("Sucrito correctamente.");
+        setMessage('Sucrito correctamente.');
         setShowMessage(true);
       } else {
-        setError("A ocurrido un error.");
-        setShowMessage(true)
+        setError('A ocurrido un error.');
+        setShowMessage(true);
       }
-    }catch(err){
-      console.log(err)
-      setError("A ocurrido un error.")
-      setShowMessage(true)
+    } catch (err) {
+      console.log(err);
+      setError('A ocurrido un error.');
+      setShowMessage(true);
     }
-    setEmail("");
+    setEmail('');
     setTimeout(() => {
-      setMessage("");
+      setMessage('');
       setError(null);
       setShowMessage(false);
     }, 4000);

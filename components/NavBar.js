@@ -1,5 +1,5 @@
-import styles from "../styles/NavBar.module.css";
-import Link from "next/link"
+import Link from 'next/link';
+import styles from '../styles/NavBar.module.css';
 
 export default function NavBar() {
   return (
@@ -14,7 +14,7 @@ export default function NavBar() {
   );
 }
 
-function LinkComponent({children,href}) {
+function LinkComponent({ children, href }) {
   return (
     <div className={styles.link}>
       <Link href={href}>{children}</Link>

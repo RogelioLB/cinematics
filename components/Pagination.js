@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import styles from "../styles/Pagination.module.css";
+import { useSelector } from 'react-redux';
+import styles from '../styles/Pagination.module.css';
 
 function Page({ number, focus }) {
   return (
@@ -22,10 +22,10 @@ export default function Pagination() {
 
   return (
     <div className={styles.pagination_wrapper}>
-      {pagination.pageCount &&
-        Array(pagination.pageCount).fill("").map((_, i) => {
-          const page = i+1
-          return <Page number={page} focus={page===pagination.page ? true : false} key={i}/>
+      {pagination.pageCount
+        && Array(pagination.pageCount).fill('').map((_, i) => {
+          const page = i + 1;
+          return <Page number={page} focus={page === pagination.page} key={i}/>;
         })}
     </div>
   );
