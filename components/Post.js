@@ -13,7 +13,7 @@ export default function Post({ post }) {
   const image = MainImage.data.attributes;
   const medium = image.formats?.medium;
   const { small } = image.formats;
-  const url = medium.url ?? small.url;
+  const url = medium?.url ?? small.url;
   return (
     <article className={styles.container}>
       <Link href={`/posts/${slug}`}>
