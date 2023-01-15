@@ -1,4 +1,5 @@
 import styles from "../styles/NavBar.module.css";
+import Link from "next/link"
 
 export default function NavBar() {
   return (
@@ -6,19 +7,17 @@ export default function NavBar() {
       <div className={styles.container}>
         <h1 className={styles.title}>Cinematics</h1>
         <div className={styles.links}>
-          <Link href="/">Inicio</Link>
-          <Link>Categorias</Link>
-          <Link>Contacto</Link>
+          <LinkComponent href="/">Inicio</LinkComponent>
         </div>
       </div>
     </div>
   );
 }
 
-function Link({children,href}) {
+function LinkComponent({children,href}) {
   return (
     <div className={styles.link}>
-      <a href={href}>{children}</a>
+      <Link href={href}>{children}</Link>
       <span></span>
     </div>
   );

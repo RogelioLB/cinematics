@@ -1,26 +1,24 @@
-import styles from "../styles/Post.module.css";
-import Image from "next/image";
+import Link from 'next/link';
+import styles from '../styles/Post.module.css';
 
 function Tag({ content }) {
   return <span className={styles.tag}>{content}</span>;
 }
 
 export default function Post({ post }) {
-  const { Title, publishedAt, categories, MainImage, content, slug } =
-    post.attributes;
+  const {
+    Title, publishedAt, categories, MainImage, content, slug,
+  } = post.attributes;
   const tags = categories.data;
   const image = MainImage.data.attributes;
   const medium = image.formats?.medium;
-  const small = image.formats.small;
+  const { small } = image.formats;
   const url = medium.url ?? small.url;
   return (
     <article className={styles.container}>
-      <a href={`/posts/${slug}`}>
+      <Link href={`/posts/${slug}`}>
         <div className={styles.image_container}>
-          <img
-            src={url}
-            alt={image.name}
-          />
+          <img src={url} alt={image.name} />
         </div>
 
         <h3 className={styles.title}>{Title}</h3>
@@ -30,13 +28,13 @@ export default function Post({ post }) {
             {new Date(publishedAt).toDateString()}
           </span>
           <div className={styles.tags_container}>
-            {tags &&
-              tags.map((tag) => (
+            {tags
+              && tags.map((tag) => (
                 <Tag content={tag.attributes.Name} key={tag.id} />
               ))}
           </div>
         </footer>
-      </a>
+      </Link>
     </article>
   );
 }
