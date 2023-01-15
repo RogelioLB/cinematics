@@ -20,19 +20,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Script
-        strategy='afterInteractive'
-        src='https://www.googletagmanager.com/gtag/js?id=G-TEEZ802RPY'
-      />
-      <Script strategy='afterInteractive' id='google-analytics'>
-        {`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TEEZ802RPY')
-  `}
-      </Script>
       <DefaultSeo
         additionalMetaTags={[
           {
