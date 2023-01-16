@@ -28,8 +28,8 @@ export default function Home({ posts, pagination }) {
               'blog de cine, blog de cine en español, cine, cinema, peliculas',
           },
         ]}
-        title=" Cinematics | Oficial Page "
-        description="Blog dedicado a hablar sobre series y peliculas, reseñas, opiniones, noticias y mucho más."
+        title=" Cinematics🎬 | Official Page "
+        description="Bienvenido a Cinematics🎬. El lugar perecto para conocer sobre cine, leer reseñas y criticas. Enterate de las novedades de este mundo ¡AHORA!🎥"
       />
       <NavBar />
       <div className={styles.container}>
