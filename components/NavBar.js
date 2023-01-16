@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Cinematics</h1>
+        <span className={styles.title}>Cinematics</span>
         <div className={styles.links}>
           <LinkComponent href="/">Inicio</LinkComponent>
         </div>
